@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prime Faith Fellowship</title>
+<style>
+body {
+  background-color: #F0F0F0;
+  background-image: url('https://www.example.com/oldbg.gif');
+  background-repeat: repeat;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  color: #000080;
+}
+#main {
+  width: 760px;
+  margin: 0 auto;
+  border: 2px dashed #000080;
+  padding: 10px;
+  background-color: #FFFFFF;
+}
+h1 {
+  text-align: center;
+  color: #800000;
+  font-size: 36px;
+}
+h2 {
+  color: #800000;
+  font-size: 24px;
+  text-decoration: underline;
+}
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+nav {
+  background-color: #FFFFCC;
+  border: 1px solid #000080;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+nav a {
+  margin: 0 10px;
+  color: #000080;
+}
+footer {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px dotted #000080;
+}
+</style>
+</head>
+<body>
+<div id="main">
+<h1>Prime Faith Fellowship</h1>
+<nav>
+<a href="#history">History</a> |
+<a href="#beliefs">Beliefs</a> |
+<a href="#prime-test">Prime Test</a> |
+<a href="#join">Join Us</a>
+</nav>
+<section id="history">
+<h2>History</h2>
+<p>The Prime Faith Fellowship began in the early days of the internet, when a small group of enthusiasts discovered the divine beauty of <strong>prime numbers</strong>. Inspired by the mysteries of mathematics, they formed a community dedicated to celebrating these indivisible jewels.</p>
+<p>Our digital sanctuary pays homage to the simple, yet profound, elegance of primes. We gather to appreciate the unique qualities that set them apart from all other numbers.</p>
+</section>
+<section id="beliefs">
+<h2>Beliefs</h2>
+<p>We believe that prime numbers represent purity and perseverance. Each prime stands alone, resolute against division by any other number. In this strength, we find a metaphor for personal integrity and truth.</p>
+<p>Members of the Fellowship celebrate primes in all aspects of life, finding comfort in sequences such as 2, 3, 5, 7, and beyond. Through playful rituals like the <em>Prime Chant</em> and <em>Factorization Feast</em>, we honor these special numbers.</p>
+</section>
+<section id="prime-test">
+<h2>Prime Test</h2>
+<p>Enter a number below to see if it is prime.</p>
+<form id="testForm" onsubmit="return false;">
+  <input type="text" id="inputNumber" />
+  <input type="submit" value="Check" />
+</form>
+<p id="result" style="font-weight:bold;"></p>
+</section>
+<section id="join">
+<h2>Join Us</h2>
+<p>If you're drawn to the mystique of primes, we invite you to join our community. Share your favorite prime, create art inspired by numbers, or simply bask in the glow of indivisibility.</p>
+<p>Our gatherings are open to all who appreciate the whimsical side of mathematics.</p>
+</section>
+<footer>
+<p><strong>Disclaimer:</strong> Prime Faith Fellowship is a fictitious group created for fun and is not an actual religion. All content on this page is purely satirical.</p>
+<p>&copy; 2001-2024 Prime Faith Fellowship</p>
+</footer>
+</div>
+<script>
+function isPrime(n) {
+  if (n <= 1) return false;
+  if (n <= 3) return true;
+  if (n % 2 === 0 || n % 3 === 0) return false;
+  for (let i = 5; i * i <= n; i += 6) {
+    if (n % i === 0 || n % (i + 2) === 0) return false;
+  }
+  return true;
+}
+
+document.getElementById('testForm').onsubmit = function () {
+  const val = parseInt(document.getElementById('inputNumber').value, 10);
+  const resultEl = document.getElementById('result');
+  if (isNaN(val)) {
+    resultEl.textContent = 'Please enter a valid number.';
+    return false;
+  }
+  if (isPrime(val)) {
+    resultEl.textContent = val + ' is a prime number!';
+  } else {
+    resultEl.textContent = val + ' is not a prime.';
+  }
+  return false;
+};
+</script>
+</body>
+</html>
